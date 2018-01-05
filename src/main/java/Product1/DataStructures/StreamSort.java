@@ -29,7 +29,5 @@ public class StreamSort {
             .filter(x -> !x.startsWith("a") && !x.startsWith("b") && !x.startsWith("c"))
             .sorted(Comparator.naturalOrder())
             .forEach(x -> System.out.println(x));
-
-
     }
 }

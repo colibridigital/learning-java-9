@@ -10,6 +10,5 @@ public class Main {
         System.out.println("Parent method vehicle type " + car.getVehicleType());
 
         System.out.println("Overriden parent method vehicle type " + bike.getVehicleType());
-
     }
 }
