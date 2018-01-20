@@ -19,6 +19,8 @@ public class Main {
             }
         };
 
+        age.printAge();
+
         //Static nested class
         CarParts carPart = new CarParts();
         CarParts.Wheel wheel = new CarParts.Wheel();
