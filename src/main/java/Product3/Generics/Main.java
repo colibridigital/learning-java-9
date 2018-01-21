@@ -1,5 +1,8 @@
 package Product3.Generics;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -15,18 +18,39 @@ public class Main {
         Grade grade4 = new Grade(9, "A");
 
 
-        TrainingCourse trainingCourse = new TrainingCourse("Learning Java 9");
-        trainingCourse.addStudent(student1, grade1);
-        trainingCourse.addStudent(student2, grade2);
-        trainingCourse.addStudent(student3, grade3);
-        trainingCourse.addStudent(student4, grade4);
+        TrainingCourse learningJava9 = new TrainingCourse("Learning Java 9");
+        learningJava9.addStudent(student1, grade1);
+        learningJava9.addStudent(student2, grade2);
+        learningJava9.addStudent(student3, grade3);
+        learningJava9.addStudent(student4, grade4);
 
-        System.out.println("These are the students enrolled in the " + trainingCourse.getCourseName() + " course");
-        System.out.println(trainingCourse.getListOfStudents().stream()
+        System.out.println("These are the students enrolled in the " + learningJava9.getCourseName() + " course");
+        System.out.println(learningJava9.getListOfStudents().stream()
             .map(student -> student.getFirstName() + " " + student.getLastName())
             .collect(Collectors.toList()));
 
-        System.out.println("The best grade is " + trainingCourse.getMaxGrade());
-        System.out.println("The average grade is " + trainingCourse.getAverageGrade());
+        System.out.println("The best grade is " + learningJava9.getMaxGrade());
+        System.out.println("The average grade is " + learningJava9.getAverageGrade());
+
+        //Create another training course
+        TrainingCourse handsOnPython3 = new TrainingCourse("Hands on Python 3");
+        handsOnPython3.addStudent(student1, grade1);
+        handsOnPython3.addStudent(student2, grade2);
+        handsOnPython3.addStudent(student3, grade3);
+        handsOnPython3.addStudent(student4, grade4);
+
+        //Create a map of instructor to training course
+        Map<String, TrainingCourse> instructorCourseMap = new HashMap<>();
+        instructorCourseMap.put("James Cross", learningJava9);
+        instructorCourseMap.put("Andrei Ruse", handsOnPython3);
+        instructorCourseMap.put("Andrei Ruse", handsOnPython3);
+
+        //Convert map keys to a unique set
+        Set<String> instructors = instructorCourseMap.keySet();
+
+        System.out.println("Printing course instructors");
+
+        //Print out the instructors - note Andrei will only appear once
+        instructors.stream().forEach(instructor -> System.out.println(instructor));
     }
 }
