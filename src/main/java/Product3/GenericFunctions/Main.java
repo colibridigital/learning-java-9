@@ -1,6 +1,6 @@
 package Product3.GenericFunctions;
 
-import Product3.Generics.Grade;
+import Product3.GenericDataStructures.Grade;
 
 import java.util.List;
 

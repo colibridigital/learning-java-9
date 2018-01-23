@@ -1,4 +1,4 @@
-package Product3.Generics;
+package Product3.GenericDataStructures;
 
 public class Grade {
     private final int score;

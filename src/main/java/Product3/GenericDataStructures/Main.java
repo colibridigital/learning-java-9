@@ -1,4 +1,4 @@
-package Product3.Generics;
+package Product3.GenericDataStructures;
 
 import java.util.HashMap;
 import java.util.Map;

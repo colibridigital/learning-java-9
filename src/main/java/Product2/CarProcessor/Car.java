@@ -6,7 +6,7 @@ public class Car {
     private final String colour;
     private final double engine_size;
 
-    Car(String make, String model, String colour, double engine_size) {
+    public Car(String make, String model, String colour, double engine_size) {
         this.make = make;
         this.model = model;
         this.colour = colour;
