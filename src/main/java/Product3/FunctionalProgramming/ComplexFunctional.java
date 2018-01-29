@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class ComplexFunctional {
     public static void main(String args[]) {
@@ -17,6 +18,15 @@ public class ComplexFunctional {
         sumReduce();
 
         //Count
+        System.out.println("################## Sum Reduce #####################");
+        count();
+    }
+
+    public static void count() {
+        long count = IntStream.range(1, 100).count();
+        long sum = IntStream.range(1, 100).sum();
+        System.out.println("Total values between 1 and 100 is " + count);
+        System.out.println("Sum of values between 1 and 100 is " + sum);
     }
 
     private static void sumReduce() {
