@@ -27,17 +27,17 @@ public class TrainingCourse {
     }
 
     public Integer getMaxGrade() {
-        return gradeMap.values().stream()
-            .map(grade -> grade.getScore())
+        return gradeMap.values().stream() //Stream of grades
+            .map(grade -> grade.getScore()) //Stream of scores
             .max(Comparator.comparing(Integer::intValue))
             .get();
     }
 
     public double getAverageGrade() {
-        return gradeMap.values().stream()
-            .map(grade -> grade.getScore())
-            .mapToDouble(x -> x)
-            .average()
+        return gradeMap.values().stream() //Stream of grades
+            .map(grade -> grade.getScore()) //Stream of scores
+            .mapToDouble(x -> x) //Stream of scores (int) to Stream of scores (double)
+            .average() //Average
             .orElse(Double.NaN);
     }
 }
