@@ -12,8 +12,6 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Map;
 
 public class Main {
     private static String TO_TRANSLATE = "Hello world and welcome to Java 9";
@@ -44,7 +42,6 @@ public class Main {
         HttpClient httpClient = HttpClient.newHttpClient(); //Create a HttpClient
         System.out.println(httpClient.version());
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(new URI(callURI)).GET().build(); //Create a GET request for the given URI
-        Map<String, List<String>> headers = httpRequest.headers().map();
         return httpClient.send(httpRequest, HttpResponse.BodyHandler.asString());
     }
 
