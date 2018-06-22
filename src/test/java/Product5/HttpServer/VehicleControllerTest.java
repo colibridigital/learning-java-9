@@ -1,5 +1,6 @@
 package Product5.HttpServer;
 
+import Product5.HttpServer.Model.Vehicle;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,20 @@ public class VehicleControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void greetingShouldReturnDefaultMessage() {
+    public void getAllVehiclesIncludesFord() {
         List<Map<String, String>> response = this.restTemplate.getForObject("http://localhost:" + port + "/vehicles", List.class);
         assertThat(response.get(0).get("make")).isEqualToIgnoringCase("Ford");
+    }
+
+    @Test
+    public void getFordsReturnsFords() {
+        List<Map<String, String>> response = this.restTemplate.getForObject("http://localhost:" + port + "/vehicles/make/ford", List.class);
+        response.stream().forEach(vehicle -> assertThat(vehicle.get("make")).isEqualToIgnoringCase("Ford"));
+    }
+
+    @Test
+    public void getVehicleReturnsVehicleWithId() {
+        Vehicle vehicle = this.restTemplate.getForObject("http://localhost:" + port + "/vehicles/123", Vehicle.class);
+        assertThat(vehicle.getVehicle_id()).isEqualTo(123);
     }
 }
